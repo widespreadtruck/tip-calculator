@@ -1,5 +1,6 @@
 const formatValue = (value) => {
     //use Math.ceil?
+    // value = Math.ceil(value * 100) / 100 ;
     value = value.toFixed(2);
     return `$${value}`;
 };
@@ -17,11 +18,11 @@ const update = () => {
     let tipPercent = document.getElementById("tipInput").value;
     let split = Number(document.getElementById("splitInput").value);
     
-    let tipValue = bill * (tipPercent/100);
+    let tipValue = (bill * tipPercent)/100;
     let tipEach = tipValue / split;
     let newBillEach = (bill + tipValue) / split;
 
-    document.getElementById("tipPercent").innerHTML = `${tipValue.toFixed(2)}%`;
+    document.getElementById("tipPercent").innerHTML = `${tipPercent}%`;
 
     document.getElementById("tipValue").innerHTML = formatValue(tipValue);
 
